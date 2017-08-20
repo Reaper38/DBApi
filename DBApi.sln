@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBApi", "DBApi\DBApi.csproj", "{74F9CD24-CCBD-444B-8F09-7F06350449DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBApi.Tests", "DBApi.Tests\DBApi.Tests.csproj", "{21BB7132-5DFA-48C7-8577-9D2AE163F269}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{74F9CD24-CCBD-444B-8F09-7F06350449DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74F9CD24-CCBD-444B-8F09-7F06350449DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74F9CD24-CCBD-444B-8F09-7F06350449DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21BB7132-5DFA-48C7-8577-9D2AE163F269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21BB7132-5DFA-48C7-8577-9D2AE163F269}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21BB7132-5DFA-48C7-8577-9D2AE163F269}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21BB7132-5DFA-48C7-8577-9D2AE163F269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
