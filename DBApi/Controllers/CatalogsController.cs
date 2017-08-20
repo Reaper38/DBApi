@@ -12,6 +12,7 @@ using DBApi.Models;
 
 namespace DBApi.Controllers
 {
+    [Authorize]
     public class CatalogsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
