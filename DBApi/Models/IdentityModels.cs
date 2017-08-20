@@ -33,5 +33,7 @@ namespace DBApi.Models
         public System.Data.Entity.DbSet<DBApi.Models.CatalogModel> Catalogs { get; set; }
 
         public System.Data.Entity.DbSet<DBApi.Models.TaskModel> TaskModels { get; set; }
+
+        public System.Data.Entity.DbSet<DBApi.Models.UserModel> UserModels { get; set; }
     }
 }
