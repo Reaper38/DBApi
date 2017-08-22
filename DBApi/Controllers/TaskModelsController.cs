@@ -12,7 +12,6 @@ using DBApi.Models;
 
 namespace DBApi.Controllers
 {
-    [Authorize]
     public class TaskModelsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();

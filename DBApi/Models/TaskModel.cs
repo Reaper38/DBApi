@@ -11,6 +11,6 @@ namespace DBApi.Models
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public CatalogModel Catalog { get; set; }
-        public ApplicationUser User { get; set; }
+        public UserModel User { get; set; }
     }
 }

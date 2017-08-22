@@ -8,6 +8,16 @@ namespace DBApi.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.CatalogModels",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Name = c.String(),
+                        Description = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -29,6 +39,32 @@ namespace DBApi.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.TaskModels",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Name = c.String(),
+                        Date = c.DateTime(nullable: false),
+                        Catalog_Id = c.Guid(),
+                        User_Id = c.Guid(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.CatalogModels", t => t.Catalog_Id)
+                .ForeignKey("dbo.UserModels", t => t.User_Id)
+                .Index(t => t.Catalog_Id)
+                .Index(t => t.User_Id);
+            
+            CreateTable(
+                "dbo.UserModels",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        FullName = c.String(),
+                        Login = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -82,18 +118,25 @@ namespace DBApi.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.TaskModels", "User_Id", "dbo.UserModels");
+            DropForeignKey("dbo.TaskModels", "Catalog_Id", "dbo.CatalogModels");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.TaskModels", new[] { "User_Id" });
+            DropIndex("dbo.TaskModels", new[] { "Catalog_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.UserModels");
+            DropTable("dbo.TaskModels");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.CatalogModels");
         }
     }
 }

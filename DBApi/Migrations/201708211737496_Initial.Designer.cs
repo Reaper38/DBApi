@@ -13,7 +13,7 @@ namespace DBApi.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201708201034571_Initial"; }
+            get { return "201708211737496_Initial"; }
         }
         
         string IMigrationMetadata.Source
